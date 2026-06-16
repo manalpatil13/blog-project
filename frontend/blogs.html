@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blogs</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #f0f2f5; min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 800px; margin: auto; }
+        h1 { color: #333; margin-bottom: 20px; font-size: 2rem; }
+        .new-btn {
+            display: inline-block; background: #667eea; color: white;
+            padding: 10px 20px; border-radius: 8px; text-decoration: none;
+            margin-bottom: 30px; font-weight: 600;
+        }
+        .new-btn:hover { background: #5a67d8; }
+        .blog-card {
+            background: white; border-radius: 12px; padding: 25px;
+            margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 5px solid #667eea;
+        }
+        .blog-card h2 { color: #2d3748; margin-bottom: 10px; font-size: 1.3rem; }
+        .blog-card p { color: #718096; line-height: 1.6; margin-bottom: 15px; }
+        .actions a {
+            text-decoration: none; padding: 6px 14px; border-radius: 6px;
+            font-size: 14px; margin-right: 8px; font-weight: 500;
+        }
+        .edit { background: #ebf4ff; color: #3182ce; }
+        .edit:hover { background: #bee3f8; }
+        .delete { background: #fff5f5; color: #e53e3e; }
+        .delete:hover { background: #fed7d7; }
+        .empty { text-align: center; color: #a0aec0; margin-top: 60px; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Blogs</h1>
+        <a href="/blogs/create" class="new-btn">+ New Blog</a>
+
+        {% if blogs %}
+            {% for blog in blogs %}
+            <div class="blog-card">
+                <h2>{{ blog.title }}</h2>
+                <p>{{ blog.content }}</p>
+                <div class="actions">
+                    <a href="/blogs/update/{{ blog.id }}" class="edit">✏️ Edit</a>
+                    <a href="/blogs/delete/{{ blog.id }}" class="delete" onclick="return confirm('Delete this blog?')">🗑️ Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="empty">No blogs yet. Create your first one!</p>
+        {% endif %}
+    </div>
+</body>
+</html>

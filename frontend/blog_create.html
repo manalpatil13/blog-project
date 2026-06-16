@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Blog</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #f0f2f5; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .card {
+            background: white; padding: 40px; border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1); width: 100%; max-width: 600px;
+        }
+        h1 { color: #2d3748; margin-bottom: 25px; font-size: 1.8rem; }
+        label { display: block; color: #4a5568; font-weight: 600; margin-bottom: 6px; }
+        input, textarea {
+            width: 100%; padding: 12px 15px; border: 2px solid #e2e8f0;
+            border-radius: 8px; font-size: 15px; margin-bottom: 20px;
+            outline: none; transition: border 0.2s;
+        }
+        input:focus, textarea:focus { border-color: #667eea; }
+        textarea { height: 150px; resize: vertical; }
+        .btn-row { display: flex; gap: 12px; }
+        button {
+            flex: 1; background: #667eea; color: white; border: none;
+            padding: 12px; border-radius: 8px; font-size: 16px;
+            font-weight: 600; cursor: pointer;
+        }
+        button:hover { background: #5a67d8; }
+        a.back {
+            flex: 1; text-align: center; padding: 12px; border-radius: 8px;
+            background: #edf2f7; color: #4a5568; text-decoration: none; font-weight: 600;
+        }
+        a.back:hover { background: #e2e8f0; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>✍️ Create Blog</h1>
+        <form method="post">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="Enter blog title" required>
+            <label>Content</label>
+            <textarea name="content" placeholder="Write your blog content here..." required></textarea>
+            <div class="btn-row">
+                <a href="/blogs" class="back">← Back</a>
+                <button type="submit">Publish</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
